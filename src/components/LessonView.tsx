@@ -11,6 +11,22 @@ import { Hands } from "./Hands";
 import { Keyboard } from "./Keyboard";
 import { Pip } from "./Pip";
 
+function PromptChars({ text }: { text: string }) {
+  return (
+    <>
+      {[...text].map((ch, i) =>
+        ch === " " ? (
+          <span key={i} className="gap">
+            ·
+          </span>
+        ) : (
+          <span key={i}>{ch}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export function LessonView({ lessonId }: { lessonId: string }) {
   const lesson = getLesson(lessonId);
   const { state, dispatch } = useStore();
@@ -231,15 +247,23 @@ export function LessonView({ lessonId }: { lessonId: string }) {
           )}
 
           <div className={`prompt ${snap.lastWasError ? "is-miss" : ""}`}>
-            <span className="done">{snap.prompt.slice(0, snap.index)}</span>
-            <span className="caret">{expected === " " ? "␣" : expected}</span>
-            <span className="todo">{snap.prompt.slice(snap.index + 1)}</span>
+            <span className="done">
+              <PromptChars text={snap.prompt.slice(0, snap.index)} />
+            </span>
+            <span className={`caret ${expected === " " ? "space-caret" : ""}`}>
+              {expected === " " ? "SPACE" : expected}
+            </span>
+            <span className="todo">
+              <PromptChars text={snap.prompt.slice(snap.index + 1)} />
+            </span>
           </div>
 
           {finger && (
             <p className="finger-hint">
               <span className="swatch" style={{ background: FINGER_META[finger].color }} />
-              {FINGER_META[finger].label} · {displayKeyLabel(expected)}
+              {expected === " "
+                ? "Press SPACE with a thumb"
+                : `${FINGER_META[finger].label} · ${displayKeyLabel(expected)}`}
             </p>
           )}
 

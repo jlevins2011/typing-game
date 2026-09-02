@@ -19,11 +19,23 @@ describe("progress", () => {
     expect(isLessonUnlocked(child, LESSONS[1].id)).toBe(true);
     expect(recommendedLessonId(child)).toBe(LESSONS[1].id);
   });
+
+  it("does not unlock the next lesson after a zero-star attempt", () => {
+    const child = createChild("Bea", "snow");
+    child.completedLessons[LESSONS[1].id] = {
+      stars: 0,
+      bestWpm: 15,
+      bestAccuracy: 57,
+      attempts: 1,
+      completedAt: 0,
+    };
+    expect(isLessonUnlocked(child, LESSONS[1].id)).toBe(false);
+  });
 });
 
 describe("prompts", () => {
   it("is deterministic for a seed", () => {
-    const lesson = LESSONS.find((item) => item.id === "left-f");
+    const lesson = LESSONS.find((item) => item.id === "left-home");
     if (!lesson) throw new Error("missing");
     expect(buildPrompt(lesson, "seed-1")).toBe(buildPrompt(lesson, "seed-1"));
     expect(buildPrompt(lesson, "seed-1")).not.toBe(buildPrompt(lesson, "seed-2"));

@@ -101,12 +101,27 @@ function reducer(state: State, action: Action): State {
         children: state.children.map((child) => {
           if (child.id !== childId) return child;
           const updated = appendSession(child, session);
-          if (!result.passed) return updated;
+          const current = updated.completedLessons[action.lessonId];
+          if (!result.passed) {
+            return {
+              ...updated,
+              completedLessons: {
+                ...updated.completedLessons,
+                [action.lessonId]: {
+                  stars: current?.stars ?? 0,
+                  bestWpm: Math.max(current?.bestWpm ?? 0, result.wpm),
+                  bestAccuracy: Math.max(current?.bestAccuracy ?? 0, result.accuracy),
+                  attempts: (current?.attempts ?? 0) + 1,
+                  completedAt: current?.completedAt ?? 0,
+                },
+              },
+            };
+          }
           return {
             ...updated,
             completedLessons: {
               ...updated.completedLessons,
-              [action.lessonId]: mergeLessonRecord(updated.completedLessons[action.lessonId], {
+              [action.lessonId]: mergeLessonRecord(current, {
                 stars: result.stars,
                 bestWpm: result.wpm,
                 bestAccuracy: result.accuracy,

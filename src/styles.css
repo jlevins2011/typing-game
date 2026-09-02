@@ -141,8 +141,8 @@ h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
 .map-who { display: flex; align-items: center; gap: 10px; }
 .worlds { display: grid; gap: 18px; }
 .world {
-  border-radius: 28px;
-  padding: 18px;
+  border-radius: 22px;
+  padding: 14px 16px;
   background: #1e3a2e;
 }
 .world.mood-dawn { background: linear-gradient(180deg, #35564a, #1e3a2e); }
@@ -167,7 +167,7 @@ h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
 .node-title { font-family: var(--font-display); font-size: 1.05rem; }
 .node-tease, .node-stars { font-size: 0.85rem; color: var(--muted); }
 .node-stars { color: #c4921e; }
-.continue { margin-top: 22px; }
+.map-top .btn { flex-shrink: 0; }
 
 .hud { display: flex; gap: 16px; font-weight: 800; }
 .hud b { color: var(--gold); }
@@ -183,8 +183,10 @@ h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
   padding: 18px;
   margin: 16px 0 10px;
   min-height: 6rem;
+  white-space: pre-wrap;
   word-break: break-word;
 }
+.prompt .gap { color: #8f8678; padding: 0 2px; }
 .prompt .done { color: #b7e3b0; }
 .prompt .todo { color: #d9d0c0; }
 .prompt .caret {
@@ -194,6 +196,7 @@ h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
   padding: 0 4px;
   margin: 0 1px;
 }
+.prompt .space-caret { letter-spacing: 0.08em; font-size: 0.72em; vertical-align: middle; }
 .prompt.is-miss .caret { background: var(--danger); color: #fff; animation: shake 0.2s; }
 @keyframes shake {
   25% { transform: translateX(-3px); }

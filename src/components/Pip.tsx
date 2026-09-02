@@ -39,17 +39,18 @@ export function Pip({
           <rect x="64" y="92" width="8" height="16" rx="4" fill={c.ear} />
         </g>
         <circle cx="62" cy="46" r="22" fill={c.body} />
-        <ellipse cx="70" cy="50" rx="10" ry="8" fill={c.belly} />
-        <path d="M44 32 L38 12 L54 28Z" fill={c.ear} />
-        <path d="M72 28 L86 10 L82 34Z" fill={c.ear} />
-        <path d="M46 30 L42 16 L54 28Z" fill="#f3b6c4" />
-        <path d="M74 28 L84 14 L80 32Z" fill="#f3b6c4" />
+        <ellipse cx="74" cy="52" rx="12" ry="8" fill={c.body} />
+        <ellipse cx="80" cy="54" rx="8" ry="5" fill={c.belly} />
+        <path d="M44 32 L36 8 L56 28Z" fill={c.ear} />
+        <path d="M72 26 L90 6 L84 32Z" fill={c.ear} />
+        <path d="M46 30 L40 14 L54 28Z" fill="#f3b6c4" />
+        <path d="M74 26 L88 10 L82 32Z" fill="#f3b6c4" />
         <circle cx="56" cy="44" r="3.2" fill="#1a1714" />
-        <circle cx="72" cy="44" r="3.2" fill="#1a1714" />
+        <circle cx="70" cy="42" r="3.2" fill="#1a1714" />
         <circle cx="57" cy="43" r="1" fill="#fff" />
-        <circle cx="73" cy="43" r="1" fill="#fff" />
-        <ellipse cx="76" cy="52" rx="4" ry="3" fill="#c45c26" />
-        <path d="M76 55 Q72 60 66 58" fill="none" stroke="#1a1714" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="71" cy="41" r="1" fill="#fff" />
+        <ellipse cx="84" cy="54" rx="4.5" ry="3" fill="#c45c26" />
+        <path d="M84 57 Q78 64 68 60" fill="none" stroke="#1a1714" strokeWidth="1.5" strokeLinecap="round" />
       </g>
     </svg>
   );

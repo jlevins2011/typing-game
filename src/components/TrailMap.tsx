@@ -1,4 +1,4 @@
-import { LESSONS, WORLDS, lessonsInWorld } from "../data/curriculum";
+import { WORLDS, lessonsInWorld } from "../data/curriculum";
 import { isLessonUnlocked, progressPercent, recommendedLessonId, totalStars, maxStars } from "../lib/stats";
 import { useActiveChild, useStore } from "../store/StoreContext";
 import { Pip } from "./Pip";
@@ -24,6 +24,12 @@ export function TrailMap() {
             </p>
           </div>
         </div>
+        <button
+          className="btn primary"
+          onClick={() => dispatch({ type: "go", view: { name: "lesson", lessonId: rec } })}
+        >
+          Continue
+        </button>
         <button className="btn ghost" onClick={() => dispatch({ type: "go", view: { name: "settings" } })}>
           Settings
         </button>
@@ -63,13 +69,6 @@ export function TrailMap() {
           );
         })}
       </div>
-
-      <button
-        className="btn primary continue"
-        onClick={() => dispatch({ type: "go", view: { name: "lesson", lessonId: rec } })}
-      >
-        Continue lesson {LESSONS.find((l) => l.id === rec)?.number}
-      </button>
     </div>
   );
 }
