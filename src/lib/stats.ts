@@ -74,7 +74,6 @@ export function recentSessions(child: Child, limit = 12): Session[] {
 
 export function wpmTrend(child: Child): { t: number; wpm: number; accuracy: number }[] {
   return [...child.sessions]
-    .filter((session) => session.passed)
     .sort((a, b) => a.startedAt - b.startedAt)
     .map((session) => ({ t: session.startedAt, wpm: session.wpm, accuracy: session.accuracy }));
 }

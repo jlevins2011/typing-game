@@ -24,16 +24,20 @@ function Sparkline({ points }: { points: { wpm: number }[] }) {
   const max = Math.max(20, ...points.map((p) => p.wpm));
   const w = 320;
   const h = 72;
-  const d = points
-    .map((p, i) => {
-      const x = (i / (points.length - 1)) * w;
-      const y = h - (p.wpm / max) * (h - 8) - 4;
-      return `${i === 0 ? "M" : "L"}${x},${y}`;
-    })
-    .join(" ");
+  const coords = points.map((p, i) => {
+    const x = (i / (points.length - 1)) * (w - 12) + 6;
+    const y = h - 10 - (p.wpm / max) * (h - 18);
+    return { x, y, wpm: p.wpm };
+  });
+  const d = coords.map((c, i) => `${i === 0 ? "M" : "L"}${c.x},${c.y}`).join(" ");
+  const fill = `M${coords[0].x},${h - 4} ${coords.map((c) => `L${c.x},${c.y}`).join(" ")} L${coords[coords.length - 1].x},${h - 4} Z`;
   return (
     <svg className="spark" viewBox={`0 0 ${w} ${h}`} role="img" aria-label="Words per minute over time">
-      <path d={d} fill="none" stroke="#f4c14e" strokeWidth="3" strokeLinecap="round" />
+      <path d={fill} fill="rgba(244,193,78,0.18)" />
+      <path d={d} fill="none" stroke="#f4c14e" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      {coords.map((c, i) => (
+        <circle key={i} cx={c.x} cy={c.y} r="3.5" fill="#f7f0e2" stroke="#f4c14e" strokeWidth="2" />
+      ))}
     </svg>
   );
 }
