@@ -24,6 +24,12 @@ describe("wpm", () => {
     expect(starsForAttempt(true, 85, 12, 80, [12, 20])).toBe(2);
     expect(starsForAttempt(true, 96, 22, 80, [12, 20])).toBe(3);
   });
+
+  it("gives three stars for finishing early lessons with no speed mark", () => {
+    expect(starsForAttempt(true, 60, 3, 55, [0, 0])).toBe(3);
+    expect(starsForAttempt(true, 60, 3, 55, [0, 6])).toBe(2);
+    expect(starsForAttempt(true, 60, 6, 55, [0, 6])).toBe(3);
+  });
 });
 
 describe("engine", () => {
@@ -82,6 +88,7 @@ describe("lessons", () => {
     };
     const result = evaluateLesson(lesson, snap, 60_000);
     expect(result.passed).toBe(true);
+    expect(result.stars).toBe(3);
     expect(result.accuracy).toBe(computeAccuracy(20, 4));
   });
 });

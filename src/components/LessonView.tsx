@@ -268,6 +268,15 @@ export function LessonView({ lessonId }: { lessonId: string }) {
               Reach camp with lives left. Combo {rules.jumpCombo}+ or about {rules.powerWpm} WPM to jump gaps. Glow
               berries help. Finish at {lesson.goals.accuracy}% accuracy.
             </p>
+          ) : lesson.starWpm[1] <= 0 ? (
+            <p className="goal">
+              Walk Pip to camp at {lesson.goals.accuracy}% accuracy — take your time. Finishing earns all three stars.
+            </p>
+          ) : lesson.starWpm[0] <= 0 ? (
+            <p className="goal">
+              Walk Pip to camp at {lesson.goals.accuracy}% accuracy for two stars. Three stars at {lesson.starWpm[1]}{" "}
+              WPM.
+            </p>
           ) : (
             <p className="goal">
               Walk Pip to camp at {lesson.goals.accuracy}% accuracy. Extra stars for {lesson.starWpm[0]} and{" "}
