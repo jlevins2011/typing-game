@@ -13,7 +13,7 @@ export function Pip({
   size = 96,
 }: {
   coat?: Coat;
-  pose?: "idle" | "run" | "stumble" | "celebrate" | "sit";
+  pose?: "idle" | "run" | "stumble" | "celebrate" | "sit" | "jump" | "fall";
   size?: number;
 }) {
   const c = COATS[coat];

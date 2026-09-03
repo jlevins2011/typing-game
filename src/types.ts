@@ -77,6 +77,7 @@ export type Session = {
   keyErrors: Record<string, number>;
   stars: number;
   passed: boolean;
+  ko?: boolean;
 };
 
 export type Child = {

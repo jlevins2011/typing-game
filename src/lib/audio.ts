@@ -49,4 +49,16 @@ export const sounds = {
     beep(392, 0.1, "sine", 0.04);
     setTimeout(() => beep(523, 0.14, "sine", 0.04), 100);
   },
+  jump() {
+    beep(520, 0.08, "triangle", 0.04);
+    setTimeout(() => beep(740, 0.1, "triangle", 0.035), 70);
+  },
+  power() {
+    beep(660, 0.1, "sine", 0.04);
+    setTimeout(() => beep(990, 0.16, "triangle", 0.045), 90);
+  },
+  fall() {
+    beep(240, 0.16, "sawtooth", 0.03);
+    setTimeout(() => beep(140, 0.22, "sine", 0.035), 80);
+  },
 };

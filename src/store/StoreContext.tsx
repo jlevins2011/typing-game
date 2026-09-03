@@ -30,6 +30,7 @@ type Action =
       errors: number;
       keyErrors: Record<string, number>;
       finished: boolean;
+      survived?: boolean;
     };
 
 type State = StoreData & { view: View };
@@ -80,7 +81,9 @@ function reducer(state: State, action: Action): State {
         lastWasError: false,
         finished: action.finished,
       };
-      const result = evaluateLesson(lesson, snapshot, action.durationMs);
+      const result = evaluateLesson(lesson, snapshot, action.durationMs, {
+        survived: action.survived ?? true,
+      });
       const session = {
         id: newId(),
         childId,
@@ -95,6 +98,7 @@ function reducer(state: State, action: Action): State {
         keyErrors: action.keyErrors,
         stars: result.stars,
         passed: result.passed,
+        ko: action.survived === false,
       };
       return {
         ...state,
