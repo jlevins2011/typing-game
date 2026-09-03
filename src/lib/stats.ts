@@ -5,6 +5,9 @@ export function isLessonUnlocked(child: Child, lessonId: string): boolean {
   const lesson = LESSONS.find((item) => item.id === lessonId);
   if (!lesson) return false;
   if (lesson.number === 1) return true;
+  // Keep already-starred lessons playable if the curriculum later inserts
+  // new drills in front of them (kids should still be able to replay).
+  if ((child.completedLessons[lessonId]?.stars ?? 0) >= 1) return true;
   const prev = previousLessonId(lessonId);
   if (!prev) return true;
   return (child.completedLessons[prev]?.stars ?? 0) >= 1;

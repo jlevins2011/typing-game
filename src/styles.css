@@ -151,7 +151,7 @@ h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
 .world.mood-dusk { background: linear-gradient(180deg, #5a3d4a, #1e3a2e); }
 .world.mood-fire { background: linear-gradient(180deg, #6a4324, #1e3a2e); }
 .world.mood-night { background: linear-gradient(180deg, #1a2438, #12181c); }
-.nodes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.nodes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
 .node {
   width: 100%;
   text-align: left;

@@ -26,9 +26,9 @@ Progress lives in this browser (`localStorage`). There is no account and no netw
 
 ## How kids learn
 
-1. **Home Camp** — hand position, F/J bumps, left and right home-row fingers, thumbs on space, first trail run.
-2. **High Ridge** — top row reaches, then a speed-sensitive adventure.
-3. **Riverbed** — bottom row, B/N, the full alphabet.
+1. **Home Camp** — park both hands on `asdf` / `jkl;`, then one finger at a time (F, D, S, A, then the left hand; J, K, L, `;`, then the right hand), thumbs on space, both hands together, G/H, first trail run.
+2. **High Ridge** — each top-row finger (R E W Q, then the left hand; U I O P, then the right hand), T/Y, then a speed-sensitive adventure.
+3. **Riverbed** — each bottom-row finger (V C X Z, then the left hand; M , . then the right hand), B/N, the full alphabet.
 4. **Campfire Stories** — words, sentences, Shift for capitals, punctuation.
 5. **Night Summit** — speed, accuracy, numbers, stamina, and a proficiency exam (35 WPM at 95% accuracy).
 
