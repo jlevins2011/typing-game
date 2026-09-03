@@ -39,9 +39,10 @@ export function formatAccuracy(accuracy: number): string {
 }
 
 /**
- * 1 star: finished and met the lesson accuracy goal.
- * 2 stars: also reached the first speed mark.
- * 3 stars: high accuracy and the second speed mark.
+ * 1 star: passed the lesson.
+ * 2 stars: also hit the first speed mark, or accuracy well above the goal.
+ * 3 stars: hit the second speed mark. If that mark is 0 (early Home Camp),
+ * finishing is enough — kids should leave the first trails proud.
  */
 export function starsForAttempt(
   passed: boolean,
@@ -51,10 +52,10 @@ export function starsForAttempt(
   starWpm: [number, number],
 ): number {
   if (!passed) return 0;
-  const speedy = wpm >= starWpm[1];
-  const steady = wpm >= starWpm[0];
-  const precise = accuracy >= Math.max(accuracyGoal, 92);
-  if (precise && speedy) return 3;
-  if (accuracy >= accuracyGoal && steady) return 2;
+  const [wpmTwo, wpmThree] = starWpm;
+  if (wpmThree <= 0) return 3;
+  if (wpm >= wpmThree) return 3;
+  const generousAccuracy = accuracy >= Math.min(100, accuracyGoal + 10);
+  if (wpmTwo <= 0 || wpm >= wpmTwo || generousAccuracy) return 2;
   return 1;
 }
