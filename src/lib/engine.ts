@@ -115,21 +115,25 @@ export function evaluateLesson(
   lesson: Lesson,
   snapshot: TypingSnapshot,
   durationMs: number,
+  extras: { survived?: boolean } = {},
 ): { passed: boolean; stars: number; wpm: number; accuracy: number } {
   const wpm = computeWpm(snapshot.correct, durationMs);
   const accuracy = computeAccuracy(snapshot.correct, snapshot.errors);
   const finished = snapshot.finished || snapshot.index >= snapshot.prompt.length;
   const accuracyOk = lesson.goals.accuracy <= 0 || accuracy >= lesson.goals.accuracy;
   const wpmOk = lesson.goals.wpm <= 0 || wpm >= lesson.goals.wpm;
+  const survived = extras.survived ?? true;
   const passed =
-    lesson.kind === "guide"
-      ? finished
-      : lesson.kind === "exam"
-        ? finished && accuracyOk && wpmOk
-        : finished && accuracyOk;
+    !survived
+      ? false
+      : lesson.kind === "guide"
+        ? finished
+        : lesson.kind === "exam"
+          ? finished && accuracyOk && wpmOk
+          : finished && accuracyOk;
   const stars =
     lesson.kind === "guide"
-      ? finished
+      ? finished && survived
         ? 3
         : 0
       : starsForAttempt(passed, accuracy, wpm, lesson.goals.accuracy, lesson.starWpm);

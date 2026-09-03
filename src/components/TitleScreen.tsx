@@ -1,3 +1,4 @@
+import { APP_VERSION } from "../version";
 import { unlockAudio } from "../lib/audio";
 import { useStore } from "../store/StoreContext";
 import { Pip } from "./Pip";
@@ -30,12 +31,13 @@ export function TitleScreen() {
             Parent reports
           </button>
         </div>
+        <p className="version">v{APP_VERSION}</p>
       </header>
       <ul className="title-points">
         <li>Begins with home-row hand position</li>
-        <li>Speed moves Pip; misses make Pip stumble</li>
-        <li>Words per minute and accuracy on every run</li>
-        <li>PIN-protected reports for grown-ups</li>
+        <li>Every lesson is a trail Pip runs to camp</li>
+        <li>Later trails: jumps, glow power-ups, and the gloom</li>
+        <li>Words per minute and PIN-protected parent reports</li>
       </ul>
     </div>
   );

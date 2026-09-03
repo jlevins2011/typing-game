@@ -169,7 +169,7 @@ const RAW: Omit<Lesson, "number">[] = [
     promptChars: 90,
     goals: { accuracy: 80, wpm: 8 },
     starWpm: [12, 20],
-    intro: "Pip jogs when you type well. Smooth keys make a smooth run. Misses make Pip stumble.",
+    intro: "Pip jogs the home trail. Keep a little combo to hop the gaps. Glow berries help if you type with flow.",
     tip: "Accuracy first. Speed is a gift that shows up when your fingers know the way.",
   }),
   L({
@@ -244,7 +244,7 @@ const RAW: Omit<Lesson, "number">[] = [
     promptChars: 110,
     goals: { accuracy: 84, wpm: 12 },
     starWpm: [16, 24],
-    intro: "Pip runs the windy ridge. Faster typing, faster paws — but stumbles cost lanterns.",
+    intro: "Pip runs the windy ridge. Jumps need combo or speed. Miss too many and the gloom catches up.",
     tip: "A steady 16 WPM with few misses beats a messy sprint.",
   }),
   L({
@@ -319,7 +319,7 @@ const RAW: Omit<Lesson, "number">[] = [
     promptChars: 130,
     goals: { accuracy: 86, wpm: 14 },
     starWpm: [18, 28],
-    intro: "Pip hops river stones. Errors splash. A clean combo dries the path and speeds the run.",
+    intro: "Pip hops river stones. A glow berry is a free jump. Fall in the drink and this trail asks for another try.",
     tip: "When you miss, stop, breathe, home row, continue. Do not mash.",
   }),
   L({
@@ -397,7 +397,7 @@ const RAW: Omit<Lesson, "number">[] = [
     lenientCase: false,
     goals: { accuracy: 90, wpm: 20 },
     starWpm: [24, 34],
-    intro: "Type the campfire tale to carry Pip through the dark woods. Speed feeds the lantern. Errors dim it.",
+    intro: "Type the campfire tale. Speed grabs power-ups. The gloom hunts slow, messy paws — finish with lives left.",
     tip: "This is real typing. Stay tall, stay home, keep a friendly rhythm.",
   }),
   L({
@@ -474,7 +474,7 @@ const RAW: Omit<Lesson, "number">[] = [
     lenientCase: false,
     goals: { accuracy: 95, wpm: 35 },
     starWpm: [40, 50],
-    intro: "The last lantern. Finish this passage near 35 words per minute with 95% accuracy and Keytrail calls you a typist.",
+    intro: "The last lantern. Jump the summit gaps, keep the gloom back, and finish near 35 WPM with 95% accuracy.",
     tip: "Warm up on Quiet paws if you like. Then treat this like a calm conversation with the keyboard.",
   }),
 ];

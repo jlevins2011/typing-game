@@ -34,6 +34,10 @@ export function Results({ lessonId, sessionId }: { lessonId: string; sessionId: 
   } else if (session.passed) {
     headline = "Path unlocked.";
     body = "You finished with the accuracy Pip needed. Speed stars come with relaxed hands.";
+  } else if (session.ko) {
+    headline = "Pip needs another try.";
+    body =
+      "A missed jump or the gloom sent Pip back. Keep a combo going to leap the gaps, and type a little faster to grab glow berries. This trail stays until you finish it.";
   } else if (lesson.kind === "exam") {
     headline = "Summit still waiting.";
     body = `Aim for ${lesson.goals.wpm} WPM and ${lesson.goals.accuracy}% accuracy. Warm up, then try again — no rush.`;
@@ -47,7 +51,7 @@ export function Results({ lessonId, sessionId }: { lessonId: string; sessionId: 
       <p className="eyebrow">
         {world?.name} · Lesson {lesson.number}
       </p>
-      <Pip coat={child.coat} pose={session.passed ? "celebrate" : "sit"} size={120} />
+      <Pip coat={child.coat} pose={session.passed ? "celebrate" : session.ko ? "fall" : "sit"} size={120} />
       <h1>{headline}</h1>
       <p className="lede">{body}</p>
       <div className="star-row" aria-label={`${session.stars} stars`}>
