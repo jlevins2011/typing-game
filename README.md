@@ -6,6 +6,10 @@ Keytrail is **not** a Mario game and does not use Nintendo characters, music, or
 
 ## Play
 
+Live: [https://jlevins2011.github.io/typing-game/](https://jlevins2011.github.io/typing-game/)
+
+Pushes to `main` build the game and publish that URL. GitHub Pages must serve the **`gh-pages`** branch (folder `/`), not the source on `main`.
+
 ```bash
 npm install
 npm run dev
