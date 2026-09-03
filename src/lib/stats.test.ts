@@ -31,6 +31,29 @@ describe("progress", () => {
     };
     expect(isLessonUnlocked(child, LESSONS[1].id)).toBe(false);
   });
+
+  it("keeps a starred lesson playable when new drills are inserted before it", () => {
+    const child = createChild("Ada", "ember");
+    child.completedLessons["home-rest"] = {
+      stars: 3,
+      bestWpm: 0,
+      bestAccuracy: 100,
+      attempts: 1,
+      completedAt: 1,
+    };
+    child.completedLessons["left-f"] = {
+      stars: 3,
+      bestWpm: 0,
+      bestAccuracy: 100,
+      attempts: 1,
+      completedAt: 2,
+    };
+    expect(isLessonUnlocked(child, "left-f")).toBe(true);
+    expect(isLessonUnlocked(child, "home-park")).toBe(true);
+    expect(isLessonUnlocked(child, "left-d")).toBe(true);
+    expect(isLessonUnlocked(child, "left-s")).toBe(false);
+    expect(recommendedLessonId(child)).toBe("home-park");
+  });
 });
 
 describe("prompts", () => {

@@ -34,7 +34,7 @@ export function TitleScreen() {
         <p className="version">v{APP_VERSION}</p>
       </header>
       <ul className="title-points">
-        <li>Begins with home-row hand position</li>
+        <li>Park both hands, then one finger at a time</li>
         <li>Every lesson is a trail Pip runs to camp</li>
         <li>Later trails: jumps, glow power-ups, and the gloom</li>
         <li>Words per minute and PIN-protected parent reports</li>

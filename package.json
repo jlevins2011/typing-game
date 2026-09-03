@@ -1,7 +1,7 @@
 {
   "name": "keytrail",
   "private": true,
-    "version": "1.1.1",
+    "version": "1.2.0",
   "type": "module",
   "description": "Keytrail — an original kids typing adventure with parent reports.",
   "scripts": {
